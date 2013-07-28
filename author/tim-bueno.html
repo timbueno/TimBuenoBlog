@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Tim Bueno &middot; Articles by Tim Bueno</title>
+        <link rel="shortcut icon" href="http://timbueno.com/favicon.ico" />
+        <link href="http://timbueno.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Tim Bueno Atom Feed" />
+                
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/screen.css" type="text/css" />
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/pygments.css" type="text/css" />
+
+
+    </head>
+    <body>
+        <div id="header">
+            <ul id="nav">
+                <li class="ephemeral selected"><a href="http://timbueno.com/author/tim-bueno.html">Tim Bueno</a></li>
+                <li><a href="http://timbueno.com">Home</a></li>
+                <li><a href="http://timbueno.com/about">About</a></li>
+                <li><a href="http://timbueno.com/projects">Projects</a></li>
+                <li><a href="http://timbueno.com/archives.html">Archives</a></li>
+            </ul>
+            <div class="header_box">
+                <h1><a href="http://timbueno.com">Tim Bueno</a></h1>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="content">			
+
+                <h4 class="date">Apr  1,  2013</h4>
+                <div class="post">
+                    <h2 class="title">
+<!--                         <a href="http://timbueno.com/2013/04/01/comic-book-alfred" rel="bookmark" title="Permanent Link to &quot;Comic Book Previews&quot;">Comic Book Previews</a> -->
+                    <!-- Linked List Functionality -->
+                                            <a href="http://timbueno.com/2013/04/01/comic-book-alfred"
+                        rel="bookmark"
+                        title="Permalink to &quot;Comic Book Previews&quot;"
+                        >Comic Book Previews</a>
+                                        </h2>
+                    
+                    <p><a href="http://www.alfredapp.com/">Alfred 2</a> came out a few weeks ago and I am loving the upgrade. The new workflow system is amazingly powerful and some of the things people are coming up with are great.</p>
+<p>I have been playing around with building my own workflows since the release. Alfred's workflow system is very flexible in that it allows you to use whatever scripting language you are most comfortable with to generate the <a href="http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/">Feedback XML</a> necessary for displaying your content in the Alfred pop-up. My language of choice is once again Python. <a href="http://daniel.sh/alfred.html">Daniel Shannon</a> has written alp, a python module intended speed up the development of Alfred workflows written in Python and it works very well.</p>
+<p>Each week I check <a href="http://www.previewsworld.com/Home/1/1/71/952">PreviewsWorld</a> to see the comics that are coming out. I then add comics that I am interested in to my calendar. I've written an Alfred workflow to speed up this process.</p>
+<p><img alt="Next Weeks Comics" src="http://timbueno.com/static/images/PreviewsComics/comicsnext.png" /></p>
+<p>The workflow takes two inputs: <em>this</em> and <em>next</em>. As you would expect, <em>this</em> returns this weeks comics while <em>next</em> returns next weeks comics. </p>
+<p>Actioning on a publisher will take you to a list of the comics that publisher is releasing that week. </p>
+<p><img alt="Image Comics" src="http://timbueno.com/static/images/PreviewsComics/comicsimage.png" /></p>
+<p>Actioning on a comic book will bring you to that comics description page on PreviewsWorld. Even more useful however is what happens when you hold command while actioning. </p>
+<p>When command is held while actioning on a comic Fantastical is opened with the text field pre-populated with the comic and the date. If Fantastical is not installed, nothing will happen.</p>
+<p>You can see the source and keep updated on the project over on <a href="https://github.com/timbueno/BuenoAlfred">Github</a>. I encourage you to look into my use of autocomplete to assist in moving between pages in the workflow.</p>
+<p>Writing this script has been a fun learning experience and I hope to make a few more of these workflows as I get the time. Let me know if you like it.</p>
+
+                    <div class="clear"></div>
+                    <div class="info">
+                        <a href="http://timbueno.com/2013/04/01/comic-book-alfred">posted at 10:20 P</a>
+                    
+
+                                                    <div class="tags">
+                                <a href="http://timbueno.com/tag/alfred.html">alfred</a>
+                                <a href="http://timbueno.com/tag/python.html">python</a>
+                            </div>                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+<!-- 	<h4 class="date">Apr  1,  2013</h4>
+<div class="post">
+    
+    <h2 class="title">
+	        <a href="http://timbueno.com/2013/04/01/comic-book-alfred" rel="bookmark" title="Permanent Link to &quot;Comic Book Previews&quot;">Comic Book Previews</a>
+	    </h2>
+    
+    <div class="summary"><p>Alfred workflow to gather the latest comic book releases</p>
+        <a class="btn primary xsmall" href="http://timbueno.com/2013/04/01/comic-book-alfred">more ...</a>
+    </div>
+
+
+</div> -->			
+
+                <h4 class="date">Jun 27,  2012</h4>
+                <div class="post">
+                    <h2 class="title">
+<!--                         <a href="http://timbueno.com/2012/06/27/pinboard-plus-alfred" rel="bookmark" title="Permanent Link to &quot;Pinboard plus Alfred&quot;">Pinboard plus Alfred</a> -->
+                    <!-- Linked List Functionality -->
+                                            <a href="http://timbueno.com/2012/06/27/pinboard-plus-alfred"
+                        rel="bookmark"
+                        title="Permalink to &quot;Pinboard plus Alfred&quot;"
+                        >Pinboard plus Alfred</a>
+                                        </h2>
+                    
+                    <p><img alt="Alfred and Pinboard" src="http://timbueno.com/static/images/Alfred_Pinboard.png" /></p>
+<p>A couple months back<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> I quickly threw together an Applescript that allowed easy submission of links to <a href="http://pinboard.in/">Pinboard</a> (my favorite bookmarking utility) from the convenience of <a href="http://http://www.alfredapp.com/">Alfred</a> (the do-pretty-much-everything app launcher). If you use both and ALSO happen to use Google Chrome on a computer that runs Apple's OS X, you will <strong>love</strong> the convenience. A long shot, I know. </p>
+<p>To activate:</p>
+<ol>
+<li>Summon Alfred via your hot key</li>
+<li>Type “pin tag1 tag2 tag3 ...”</li>
+<li>Press Enter</li>
+<li>Growl will notify you if the submission was a success!</li>
+</ol>
+<p>You must use tags for the script to work. Right now, I find it <em>convenient</em> that it forces me to tag my bookmarks correctly. However, I may look into removing this limitation in the future.</p>
+<p><a href="http://dl.dropbox.com/u/1325873/tumblr%20files/Send%20to%20Pinboard%20v1_1.alfredextension" title="They like me, they really like me!">Download</a> </p>
+<p>I have included the Applescript below for anyone who wants to probe. I realize there is probably a quicker/better way to accomplish this but it works and I wrote it when I was just starting out with Applescript. </p>
+<p>Currently the script only works in Google Chrome. I would love to bring functionality over to Safari and that may be something I look into now that <a href="http://www.macworld.com/article/1165466/mountain_lion_hands_on_with_safari.html">Safari in Mountain Lion</a> has an omnibar like Chrome's. </p>
+<p>I have a few of these "convenience" scripts lying around that I will try and put on Github in the coming weeks.</p>
+<div class="highlight"><pre><span class="c">--****************************************</span>
+<span class="c">-- Name: Chrome to Pinboard</span>
+<span class="c">-- Language: Applescript</span>
+<span class="c">-- Author: Tim Bueno</span>
+<span class="c">-- Website: http://www.timbueno.com</span>
+<span class="c">-- Date: 4/11/2011</span>
+<span class="c">--****************************************</span>
+
+<span class="k">on</span> <span class="nv">alfred_script</span><span class="p">(</span><span class="nv">q</span><span class="p">)</span>
+  <span class="k">try</span>
+    <span class="k">set</span> <span class="nv">userName</span> <span class="k">to</span> <span class="s2">&quot;USERNAME_GOES_HERE&quot;</span>
+    <span class="k">set</span> <span class="nv">userPass</span> <span class="k">to</span> <span class="s2">&quot;PASSWORD_GOES_HERE&quot;</span>
+
+    <span class="k">set</span> <span class="nv">inputt</span> <span class="k">to</span> <span class="nv">q</span> <span class="k">as </span><span class="nc">text</span>
+
+    <span class="k">set</span> <span class="nv">tmp</span> <span class="k">to</span> <span class="nv">splitString</span><span class="p">(</span><span class="nv">inputt</span> <span class="k">as </span><span class="nc">text</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="s2">&quot;+&quot;</span>
+        <span class="k">set</span> <span class="nv">q</span> <span class="k">to</span> <span class="nv">tmp</span> <span class="k">as </span><span class="nc">string</span>
+        <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">tell</span> <span class="nb">application</span> <span class="s2">&quot;Google Chrome&quot;</span>
+        <span class="k">set</span> <span class="nv">theURL</span> <span class="k">to</span> <span class="nv">URL</span> <span class="k">of</span> <span class="na">active</span> <span class="no">tab</span> <span class="k">of</span> <span class="nb">first</span> <span class="na">window</span>
+        <span class="k">set</span> <span class="nv">theDesc</span> <span class="k">to</span> <span class="na">title</span> <span class="k">of</span> <span class="na">active</span> <span class="no">tab</span> <span class="k">of</span> <span class="nb">first</span> <span class="na">window</span>
+    <span class="k">end</span> <span class="k">tell</span>
+
+    <span class="k">set</span> <span class="nv">tmp</span> <span class="k">to</span> <span class="nv">splitString</span><span class="p">(</span><span class="nv">theDesc</span> <span class="k">as </span><span class="nc">text</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="s2">&quot;+&quot;</span>
+    <span class="k">set</span> <span class="nv">theDesc</span> <span class="k">to</span> <span class="nv">tmp</span> <span class="k">as </span><span class="nc">string</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="no">space</span>
+    <span class="k">set</span> <span class="nv">growlDesc</span> <span class="k">to</span> <span class="nv">tmp</span> <span class="k">as </span><span class="nc">string</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">set</span> <span class="nv">shellScript</span> <span class="k">to</span> <span class="p">(</span><span class="s2">&quot;curl --url \&quot;https://&quot;</span> <span class="o">&amp;</span> <span class="nv">userName</span> <span class="o">&amp;</span> <span class="s2">&quot;:&quot;</span> <span class="o">&amp;</span> <span class="nv">userPass</span> <span class="o">&amp;</span> <span class="se">¬</span>
+        <span class="s2">&quot;@api.pinboard.in/v1/posts/add?url=&quot;</span> <span class="o">&amp;</span> <span class="nv">theURL</span> <span class="o">&amp;</span> <span class="s2">&quot;&amp;description=&quot;</span> <span class="o">&amp;</span> <span class="nv">theDesc</span> <span class="o">&amp;</span> <span class="s2">&quot;&amp;tags=&quot;</span> <span class="o">&amp;</span> <span class="nv">q</span> <span class="o">&amp;</span> <span class="s2">&quot;\&quot;&quot;</span><span class="p">)</span>
+
+    <span class="k">set</span> <span class="nv">PnbdResponse</span> <span class="k">to</span> <span class="p">(</span><span class="nb">do shell script</span> <span class="nv">shellScript</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nv">PnbdResponse</span> <span class="ow">contains</span> <span class="s2">&quot;code=\&quot;done\&quot;&quot;</span> <span class="k">then</span>
+        <span class="k">tell</span> <span class="nb">application</span> <span class="s2">&quot;Growl&quot;</span> <span class="k">to</span> <span class="nv">notify</span> <span class="nv">with</span> <span class="na">name</span> <span class="se">¬</span>
+            <span class="s2">&quot;Extension Output&quot;</span> <span class="na">title</span> <span class="se">¬</span>
+            <span class="s2">&quot;Sent to Pinboard&quot;</span> <span class="nv">description</span> <span class="se">¬</span>
+            <span class="s2">&quot;\&quot;&quot;</span> <span class="o">&amp;</span> <span class="nv">growlDesc</span> <span class="o">&amp;</span> <span class="s2">&quot;\&quot; has been saved!&quot;</span> <span class="nb">application</span> <span class="na">name</span> <span class="se">¬</span>
+            <span class="s2">&quot;Alfred&quot;</span> <span class="nv">icon</span> <span class="k">of</span> <span class="nb">application</span> <span class="s2">&quot;Alfred&quot;</span>
+    <span class="k">else</span>
+        <span class="k">tell</span> <span class="nb">application</span> <span class="s2">&quot;Growl&quot;</span> <span class="k">to</span> <span class="nv">notify</span> <span class="nv">with</span> <span class="na">name</span> <span class="se">¬</span>
+            <span class="s2">&quot;Extension Output&quot;</span> <span class="na">title</span> <span class="se">¬</span>
+            <span class="s2">&quot;Failed! - Sent to Pinboard&quot;</span> <span class="nv">description</span> <span class="se">¬</span>
+            <span class="s2">&quot;There was a problem. Check your username and password.&quot;</span> <span class="nb">application</span> <span class="na">name</span> <span class="se">¬</span>
+            <span class="s2">&quot;Alfred&quot;</span> <span class="nv">icon</span> <span class="k">of</span> <span class="nb">application</span> <span class="s2">&quot;Alfred&quot;</span>
+    <span class="k">end</span> <span class="k">if</span>
+<span class="k">end</span> <span class="k">try</span>
+<span class="k">end</span> <span class="nv">alfred_script</span>
+
+<span class="c">--****************************************</span>
+<span class="c">-- Split String</span>
+<span class="c">--(thanks to Geert JM Vanderkelen for this code! </span>
+<span class="c">--http://geert.vanderkelen.org/post/241/)</span>
+<span class="c">--****************************************</span>
+<span class="k">to</span> <span class="nv">splitString</span><span class="p">(</span><span class="nv">aString</span><span class="p">,</span> <span class="nv">delimiter</span><span class="p">)</span>
+    <span class="k">set</span> <span class="nv">retVal</span> <span class="k">to</span> <span class="p">{}</span>
+    <span class="k">set</span> <span class="nv">prevDelimiter</span> <span class="k">to</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span>
+    <span class="nb">log</span> <span class="nv">delimiter</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="p">{</span><span class="nv">delimiter</span><span class="p">}</span>
+    <span class="k">set</span> <span class="nv">retVal</span> <span class="k">to</span> <span class="nb">every</span> <span class="nb">text</span> <span class="nb">item</span> <span class="k">of</span> <span class="nv">aString</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="nv">prevDelimiter</span>
+    <span class="no">return</span> <span class="nv">retVal</span>
+<span class="k">end</span> <span class="nv">splitString</span>
+</pre></div>
+
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This is <em>sort of</em> a repost from an older blog of mine. This isn't plagiarism I swear.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+                    <div class="clear"></div>
+                    <div class="info">
+                        <a href="http://timbueno.com/2012/06/27/pinboard-plus-alfred">posted at  6:10 P</a>
+                    
+
+                                                    <div class="tags">
+                                <a href="http://timbueno.com/tag/alfred.html">alfred</a>
+                                <a href="http://timbueno.com/tag/applescript.html">applescript</a>
+                                <a href="http://timbueno.com/tag/programming.html">programming</a>
+                            </div>                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+<!-- 	<h4 class="date">Jun 27,  2012</h4>
+<div class="post">
+    
+    <h2 class="title">
+	        <a href="http://timbueno.com/2012/06/27/pinboard-plus-alfred" rel="bookmark" title="Permanent Link to &quot;Pinboard plus Alfred&quot;">Pinboard plus Alfred</a>
+	    </h2>
+    
+    <div class="summary"><p>Alfred 1 script to send to pinboard</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This is <em>sort of</em> a repost from an older blog of mine. This isn't plagiarism I swear.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+        <a class="btn primary xsmall" href="http://timbueno.com/2012/06/27/pinboard-plus-alfred">more ...</a>
+    </div>
+
+
+</div> -->			
+
+                <h4 class="date">Jul  7,  2012</h4>
+                <div class="post">
+                    <h2 class="title">
+<!--                         <a href="http://timbueno.com/2012/07/07/rolling-my-own-automatic-tweet-archiver" rel="bookmark" title="Permanent Link to &quot;Rolling my own automatic tweet archiver&quot;">Rolling my own automatic tweet archiver</a> -->
+                    <!-- Linked List Functionality -->
+                                            <a href="http://timbueno.com/2012/07/07/rolling-my-own-automatic-tweet-archiver"
+                        rel="bookmark"
+                        title="Permalink to &quot;Rolling my own automatic tweet archiver&quot;"
+                        >Rolling my own automatic tweet archiver</a>
+                                        </h2>
+                    
+                    <p>Working on my Tweet Archiver python script has been very fun. I have learned a fair amount about the Tweepy module and how it interfaces with Twitter's API's. Dr. Drang's <a href="http://www.leancrew.com/all-this/2012/07/tweets-timestamps-time-zones-and-thinkup/">post on timezones</a> was very informative, as I was experiencing UTC time zone issues myself. Pytz made dealing with these issues nearly painless. Rest assured that I'll find an infinite number of uses for these modules in the future. </p>
+<hr />
+<p>The spirit of the inital conversation about archiving your tweets was clear:</p>
+<ol>
+<li>An archive of your tweets is something worth having.</li>
+<li>Twitter does not have an easy way to export your entire timeline.</li>
+<li>IFTTT provides a clear, and simple way to facilitate this archival process.</li>
+</ol>
+<p>But as Dr. Drang put it perfectly in his <a href="http://www.leancrew.com/all-this/2012/07/archiving-tweets/">article</a>:</p>
+<blockquote>
+<p>The questions I need to answer now are:</p>
+<ol>
+<li>Should I trust IFTTT to keep running?</li>
+<li>Should I continue to use ThinkUp as a backup?</li>
+<li>Should I just write my own script for archiving each day’s tweets so I don’t have to rely on ThinkUp or IFTTT?</li>
+</ol>
+</blockquote>
+<p>Ignoring his comment about ThinkUp (I know next to nothing about this program), Dr. Drang brings up two interesting points. IFTTT is a great service, but for how long? If it ever does go down, will tweets that should have been archived be missed? Can I do this better myself?</p>
+<p>I have come up with a script that replicates the original IFTTT recipe called 'autoTweetArchiver.py'. The code has been pasted below and is available on <a href="https://github.com/timbueno/SimpleTweetArchiver">Github</a>.</p>
+<div class="highlight"><pre><span class="c"># autotweetArchiver.py</span>
+<span class="c">#</span>
+<span class="c"># Quickly archive your tweets to a plain text file.</span>
+<span class="c"># Attach this script to a cron task and automatically</span>
+<span class="c"># archive your tweets at any interval you choose!</span>
+<span class="c">#</span>
+<span class="c"># Created by: Tim Bueno</span>
+<span class="c"># Website: http://www.timbueno.com</span>
+<span class="c">#</span>
+<span class="c"># USAGE: python autoTweetArchiver.py {USERNAME} {LOG_FILE} {TIMEZONE}</span>
+<span class="c">#</span>
+<span class="c"># EXAMPLE: python autoTweetArchiver.py timbueno /Users/timbueno/Desktop/logDir/timbueno_twitter.txt US/Eastern</span>
+<span class="c"># EXAMPLE: python autoTweetArchiver.py BuenoDev /Users/timbueno/Desktop/logDir/buenodev_twitter.txt US/Eastern</span>
+<span class="c">#</span>
+<span class="c"># TODO:</span>
+
+<span class="kn">import</span> <span class="nn">tweepy</span>
+<span class="kn">import</span> <span class="nn">codecs</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+
+
+<span class="c"># USER INFO GATHERED FROM COMMAND LINE</span>
+<span class="n">theUserName</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">archiveFile</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">homeTZ</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">homeTZ</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">homeTZ</span><span class="p">)</span>
+
+<span class="c"># lastTweetId file location</span>
+<span class="n">idFile</span> <span class="o">=</span> <span class="n">theUserName</span> <span class="o">+</span> <span class="s">&#39;.tweetid&#39;</span>
+<span class="n">pwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span> <span class="c"># get script directory</span>
+<span class="n">idFile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pwd</span><span class="p">,</span> <span class="n">idFile</span><span class="p">)</span> <span class="c"># join dir and filename</span>
+<span class="c"># Instantiate time zone object</span>
+<span class="n">utc</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">utc</span>
+<span class="c"># Create Twitter API Object</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">()</span>
+
+<span class="c"># helpful variables</span>
+<span class="n">status_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># Create empty list to hold statuses</span>
+<span class="n">cur_status_count</span> <span class="o">=</span> <span class="mi">0</span> <span class="c"># set current status count to zero</span>
+
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+<span class="k">print</span> <span class="s">&quot;autoTweetArchiver.py&quot;</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">idFile</span><span class="p">):</span>
+    <span class="c"># Get most recent tweet id from file</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">idFile</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">idValue</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">idValue</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">idValue</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;tweetID file found! &quot;</span>
+    <span class="k">print</span> <span class="s">&quot;Latest Tweet ID: &quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">idValue</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;Gathering unarchived tweets... &quot;</span>
+
+    <span class="c"># Get first page of unarchived statuses</span>
+    <span class="n">statuses</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">include_rts</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">since_id</span><span class="o">=</span><span class="n">idValue</span><span class="p">,</span> <span class="n">screen_name</span><span class="o">=</span><span class="n">theUserName</span><span class="p">)</span>
+    <span class="c"># Get User information for display</span>
+    <span class="k">if</span> <span class="n">statuses</span> <span class="o">!=</span> <span class="p">[]:</span>
+        <span class="n">theUser</span> <span class="o">=</span> <span class="n">statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">author</span>
+        <span class="n">total_status_count</span> <span class="o">=</span> <span class="n">theUser</span><span class="o">.</span><span class="n">statuses_count</span>
+
+    <span class="k">while</span> <span class="n">statuses</span> <span class="o">!=</span> <span class="p">[]:</span>
+        <span class="n">cur_status_count</span> <span class="o">=</span> <span class="n">cur_status_count</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">statuses</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">statuses</span><span class="p">:</span>
+            <span class="n">status_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+        <span class="n">theMaxId</span> <span class="o">=</span> <span class="n">statuses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">theMaxId</span> <span class="o">=</span> <span class="n">theMaxId</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="c"># Get next page of unarchived statuses</span>
+        <span class="n">statuses</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">include_rts</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">since_id</span><span class="o">=</span><span class="n">idValue</span><span class="p">,</span> <span class="n">max_id</span><span class="o">=</span><span class="n">theMaxId</span><span class="p">,</span> <span class="n">screen_name</span><span class="o">=</span><span class="n">theUserName</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># Request first status page from twitter</span>
+    <span class="n">statuses</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">include_rts</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">screen_name</span><span class="o">=</span><span class="n">theUserName</span><span class="p">)</span>
+    <span class="c"># Get User information for display</span>
+    <span class="n">theUser</span> <span class="o">=</span> <span class="n">statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">author</span>
+    <span class="n">total_status_count</span> <span class="o">=</span> <span class="n">theUser</span><span class="o">.</span><span class="n">statuses_count</span>
+    <span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;No tweetID file found...&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;Creating a new archive file&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+
+    <span class="k">while</span> <span class="n">statuses</span> <span class="o">!=</span> <span class="p">[]:</span>
+        <span class="n">cur_status_count</span> <span class="o">=</span> <span class="n">cur_status_count</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">statuses</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">statuses</span><span class="p">:</span>
+            <span class="n">status_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+        <span class="c"># Get tweet id from last status in each page</span>
+        <span class="n">theMaxId</span> <span class="o">=</span> <span class="n">statuses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">theMaxId</span> <span class="o">=</span> <span class="n">theMaxId</span> <span class="o">-</span> <span class="mi">1</span>
+
+        <span class="c"># Get new page of statuses based on current id location</span>
+        <span class="n">statuses</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">include_rts</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">max_id</span><span class="o">=</span><span class="n">theMaxId</span><span class="p">,</span> <span class="n">screen_name</span><span class="o">=</span><span class="n">theUserName</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s"> of </span><span class="si">%d</span><span class="s"> tweets processed...&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cur_status_count</span><span class="p">,</span> <span class="n">total_status_count</span><span class="p">)</span>
+
+    <span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+    <span class="c"># print &quot;Total Statuses Retrieved: &quot; + str(len(status_list))</span>
+    <span class="k">print</span> <span class="s">&quot;Writing statuses to log file:&quot;</span>
+
+<span class="c">#Write tweets to archive</span>
+<span class="k">if</span> <span class="n">status_list</span> <span class="o">!=</span> <span class="p">[]:</span>
+    <span class="k">print</span> <span class="s">&quot;Writing tweets to archive...&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;Archive file:&quot;</span>
+    <span class="k">print</span> <span class="n">archiveFile</span>
+    <span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">archiveFile</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">status_list</span><span class="p">):</span>
+        <span class="n">theTime</span> <span class="o">=</span> <span class="n">utc</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">created_at</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">homeTZ</span><span class="p">)</span>
+        <span class="c"># Format your tweet archive here!</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">theTime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%B </span><span class="si">%d</span><span class="s">, %Y at %I:%M%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;http://twitter.com/&#39;</span><span class="o">+</span><span class="n">status</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">screen_name</span><span class="o">+</span><span class="s">&#39;/status/&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;- - - - - </span><span class="se">\n\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="c"># Write most recent tweet id to file for reuse</span>
+    <span class="k">print</span> <span class="s">&quot;Saving last tweet id for later...&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">idFile</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">status_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">status_list</span> <span class="o">==</span> <span class="p">[]:</span>
+    <span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+    <span class="k">print</span> <span class="s">&quot;No new tweets to archive!&quot;</span>
+<span class="k">print</span> <span class="s">&quot;Total Statuses Retrieved: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">status_list</span><span class="p">))</span>
+<span class="k">print</span> <span class="s">&quot;Finished!&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+</pre></div>
+
+
+<p>To run the script, clone the Github repository or copy and paste the code into your favorite text editor and save it to something like 'autoTweetArchiver.py'.  Make sure you have the required dependencies installed, then execute it with: </p>
+<div class="highlight"><pre>python autoTweetArchiver.py <span class="o">{</span>USERNAME<span class="o">}</span> <span class="o">{</span>LOG_FILE<span class="o">}</span> <span class="o">{</span>TIMEZONE<span class="o">}</span>
+</pre></div>
+
+
+<p>Replace the bracketed arguments with your personal details. Make sure it looks something like this:</p>
+<div class="highlight"><pre>python autoTweetArchiver.py timbueno /logDir/twitter.txt US/Eastern
+</pre></div>
+
+
+<p>On first execution the script will</p>
+<ol>
+<li>Grab all of your previous tweets (up to 3,200)</li>
+<li>Write these tweets to the specified text file</li>
+<li>Create a 'username.tweetid' file in the same directory as the script</li>
+</ol>
+<p>Upon successive executions the script will</p>
+<ol>
+<li>Open the 'username.tweetid' file and extract the most recent tweet archived</li>
+<li>Grab all tweets that have happened since last execution</li>
+<li>Append these new tweets to the end of the specified text file</li>
+<li>Update the 'username.tweetid' file for next execution</li>
+</ol>
+<p>The 'username.tweetid' file simply contains the ID number twitter gives every tweet. I use this value to gather all tweets between last execution and the current one.</p>
+<hr />
+<p>The third input argument, '{TIMEZONE}' must be formatted corectly or the script will fail. Tweepy's status object contains a python datetime object set to UTC time. The user must provide their timezone to localize the archive to their local time. For a list of available timezones head over <a href="https://github.com/timbueno/SimpleTweetArchiver/blob/master/timezones.txt">here</a>. If you're timezone is not listed there, let me know and I can add it.</p>
+<hr />
+<p>Of course, no one wants to have to manually run this script. The beauty of the IFTTT recipe is that they handle the automation for you.</p>
+<p>There are many different ways that the executions of this script can be automated, although none are as simple as using IFTTT. <a href="http://www.macdrifter.com/2012/02/fever-reader-review/">Macdrifter</a> uses <a href="http://www.keyboardmaestro.com/main/">Keyboard Maestro</a> for all of his automation tasks. This method is great for those of you wishing to run this script automatically on your local machine. Scripts can be set to run at any interval, with a very simple setup.</p>
+<p><img alt="Automation with Keyboard Maestro" src="http://timbueno.com/static/images/autotweetarchiver_keyboardmaestro.png" /></p>
+<p>Apple provides the program <a href="http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man1/launchctl.1.html">launchd</a>, however I have not had any experience with it, so I will not be explaining how to set this up.</p>
+<p>Finally, my preferred method is to have <a href="http://en.wikipedia.org/wiki/Cron">cron</a> handle the scheduling and automation. I have edited 'crontab' (with 'crontab -e') on my remote server with a line like this: </p>
+<div class="highlight"><pre>* * * * * python /home/blog/scripts/SimpleTweetArchiver/autoTweetArchiver.py timbueno  /path/to/archive/Dropbox/logs/timbueno_twitter.txt US/Eastern
+</pre></div>
+
+
+<p>I have placed the 'timbueno_twitter.txt' archive text file in the Dropbox folder on my server. Saving the archive file to Dropbox allows me to access the archive from anywhere in the world. </p>
+<p>The first five characters in the cronjob ('<em> * </em> * * ') tell cron to execute the following script every minute. This isn't very practical as it is unnecessary to update the archive that often. Below I have included common cron schedules:</p>
+<pre>
+Run once a year, midnight, Jan. 1st
+0 0 1 1 *
+
+Run once a month, midnight, first of month
+0 0 1 * *
+
+Run once a week, midnight on Sunday
+0 0 * * 0
+
+Run once a day, midnight
+0 0 * * *
+
+Run once an hour, beginning of hour
+0 * * * *
+</pre>
+
+<p>Cron's syntax can be confusing so if you get stuck, head over <a href="http://www.abunchofutils.com/utils/developer/cron-expression-helper/">here</a> for some help.</p>
+<hr />
+<p>You can archive multiple twitter accounts automatically as well. Add additional jobs to your 'crontab' to make it happen. Make sure each log file is named differently, or you will append the tweets of multiple twitter usernames to the same logfile (maybe you want that, go for it!).</p>
+<hr />
+<p>The past few days have been an enjoyable learning experience for me, and I hope someone somewhere can take advantage of these scripts. I'll continue to work on them as time allows. As the source is freely available on Github I welcome everyone to pick apart my code, add features, log styles, and fix any pesky bugs you may find.</p>
+<p>I've got more ideas for python scripting coming down the pipeline as well so check back here soon! test</p>
+
+                    <div class="clear"></div>
+                    <div class="info">
+                        <a href="http://timbueno.com/2012/07/07/rolling-my-own-automatic-tweet-archiver">posted at  6:03 P</a>
+                    
+
+                                                    <div class="tags">
+                                <a href="http://timbueno.com/tag/scripting.html">scripting</a>
+                                <a href="http://timbueno.com/tag/python.html">python</a>
+                                <a href="http://timbueno.com/tag/twitter.html">twitter</a>
+                            </div>                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+<!-- 	<h4 class="date">Jul  7,  2012</h4>
+<div class="post">
+    
+    <h2 class="title">
+	        <a href="http://timbueno.com/2012/07/07/rolling-my-own-automatic-tweet-archiver" rel="bookmark" title="Permanent Link to &quot;Rolling my own automatic tweet archiver&quot;">Rolling my own automatic tweet archiver</a>
+	    </h2>
+    
+    <div class="summary"><p>Automatic tweet archiving in python</p>
+        <a class="btn primary xsmall" href="http://timbueno.com/2012/07/07/rolling-my-own-automatic-tweet-archiver">more ...</a>
+    </div>
+
+
+</div> -->			
+
+                <h4 class="date">Jul  5,  2012</h4>
+                <div class="post">
+                    <h2 class="title">
+<!--                         <a href="http://timbueno.com/2012/07/05/tweet-archiver" rel="bookmark" title="Permanent Link to &quot;Tweet Archiver&quot;">Tweet Archiver</a> -->
+                    <!-- Linked List Functionality -->
+                                            <a href="https://github.com/timbueno/SimpleTweetArchiver"
+                        rel="bookmark"
+                        title="External Link"
+                        >Tweet Archiver</a>
+                                        </h2>
+                    
+                    <p>Earlier this week I became interested in a discussion floating around the internet dealing with a very cool IFTTT recipe. <a href="http://ifttt.com/">IFTTT</a> allows for easy scripting between some of your favorite web services. While the functionality is certaintly limited, creative individuals are cooking up cool uses for the service. This <a href="http://ifttt.com/recipes/37991">particular recipe</a> archives every status update you send to twitter to an extremely light-weight plain text file. The plain text format is great as it will always be readable and is not bound to any particular service or app.</p>
+<p>The only issue with the IFTTT  recipe is that it will not archive any tweet that you posted <em>before</em> setting the recipe up, limiting its usefulness. Both <a href="https://twitter.com/ttscoff/status/220860115467763712">Brett Terpstra</a> and <a href="http://www.leancrew.com/all-this/2012/07/archiving-tweets/">Dr. Drang</a> created excellent solutions, but they assume that you have access to your old tweets in other locations, such as <a href="http://thinkupapp.com/">ThinkUp</a>. While ThinkUp is nice, its not very practical to set up if you are only interested in using it once.</p>
+<p>Today, I wrote a quick python script that grabs every tweet you have ever posted, and writes it to a file in the same format as the IFTTT recipe mentioned earlier. You can modify the output to fit any custom style fairly easily as well.</p>
+<p>My current 'twitter.txt' archive file has each tweet formatted like this:
+<pre>
+RT @kanyewest: I love me
+July 31, 2010 at 05:57PM
+http://twitter.com/timbueno/20008539872</p>
+<hr />
+</pre>
+
+<p>You can find the Github page <a href="https://github.com/timbueno/SimpleTweetArchiver">here</a>. I have also posted the code (as it stands right now) below:</p>
+<div class="highlight"><pre><span class="c"># tweetArchiver.py</span>
+<span class="c">#</span>
+<span class="c"># Quickly archive your tweets to a plain text file.</span>
+<span class="c">#</span>
+<span class="c"># This script is limited to retrieving only your</span>
+<span class="c"># 3,200 most recent tweets (you have twitter</span>
+<span class="c"># to thank for that)</span>
+<span class="c">#</span>
+<span class="c"># Created by: Tim Bueno</span>
+<span class="c"># Website: http://www.timbueno.com</span>
+<span class="c">#</span>
+<span class="c"># USAGE: python tweetArchiver.py</span>
+
+<span class="kn">import</span> <span class="nn">tweepy</span>
+<span class="kn">import</span> <span class="nn">codecs</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+
+<span class="n">utc</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">utc</span>
+
+<span class="c"># Archive file location</span>
+<span class="n">archiveFile</span> <span class="o">=</span> <span class="s">&quot;/Users/timbueno/Desktop/logDir/twitter.txt&quot;</span>
+<span class="n">theUserName</span> <span class="o">=</span> <span class="s">&#39;timbueno&#39;</span>
+<span class="n">homeTZ</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s">&#39;US/Eastern&#39;</span><span class="p">)</span>
+
+<span class="c"># Create Twitter API Object</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">()</span>
+
+<span class="c"># helpful variables</span>
+<span class="n">status_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># Create empty list to hold statuses</span>
+<span class="n">cur_status_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c"># Request first status page from twitter</span>
+<span class="n">statuses</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">include_rts</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">screen_name</span><span class="o">=</span><span class="n">theUserName</span><span class="p">)</span>
+<span class="c"># Get User information for display</span>
+<span class="n">theUser</span> <span class="o">=</span> <span class="n">statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">author</span>
+<span class="n">total_status_count</span> <span class="o">=</span> <span class="n">theUser</span><span class="o">.</span><span class="n">statuses_count</span>
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- Archiving &quot;</span><span class="o">+</span><span class="n">theUser</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s">&quot;&#39;s tweets&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- Archive file:&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- &quot;</span> <span class="o">+</span> <span class="n">archiveFile</span>
+<span class="k">print</span> <span class="s">&quot;-&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- http://www.timbueno.com&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+
+<span class="k">while</span> <span class="n">statuses</span> <span class="o">!=</span> <span class="p">[]:</span>
+    <span class="n">cur_status_count</span> <span class="o">=</span> <span class="n">cur_status_count</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">statuses</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">statuses</span><span class="p">:</span>
+        <span class="n">status_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+    <span class="c"># Get tweet id from last status in each page</span>
+    <span class="n">theMaxId</span> <span class="o">=</span> <span class="n">statuses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+    <span class="n">theMaxId</span> <span class="o">=</span> <span class="n">theMaxId</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="c"># Get new page of statuses based on current id location</span>
+    <span class="n">statuses</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">include_rts</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">max_id</span><span class="o">=</span><span class="n">theMaxId</span><span class="p">,</span> <span class="n">screen_name</span><span class="o">=</span><span class="n">theUserName</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s"> of </span><span class="si">%d</span><span class="s"> tweets processed...&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cur_status_count</span><span class="p">,</span> <span class="n">total_status_count</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+<span class="k">print</span> <span class="s">&quot;Total Statuses Retrieved: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">status_list</span><span class="p">))</span>
+<span class="k">print</span> <span class="s">&quot;Writing statuses to log file:&quot;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">archiveFile</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">status_list</span><span class="p">):</span>
+    <span class="n">theTime</span> <span class="o">=</span> <span class="n">utc</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">created_at</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">homeTZ</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">theTime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%B </span><span class="si">%d</span><span class="s">, %Y at %I:%M%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;http://twitter.com/&#39;</span><span class="o">+</span><span class="n">status</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">screen_name</span><span class="o">+</span><span class="s">&#39;/status/&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;- - - - - </span><span class="se">\n\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&quot;Finished!&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+</pre></div>
+
+
+<p>The "status_list" contains any number of tweepy Status object. This list is looped over and each status object is available to process in any way you choose. The code to where this data is formatted begins on line 57. The status object has a <strong>ton</strong> of content about each individual tweet. I've included an example structure of the status object below </p>
+<div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&#39;contributors&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> 
+ <span class="s">&#39;truncated&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;text&#39;</span><span class="p">:</span> <span class="s">&#39;@ERCourtney Working with anyone</span><span class="se">\u2019</span><span class="s">s code but your own is a very frustrating experience most of the time. I hear ya.&#39;</span><span class="p">,</span>
+ <span class="s">&#39;in_reply_to_status_id&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="mi">220264265720930304</span><span class="p">,</span>
+ <span class="s">&#39;_api&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">tweepy</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">API</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1096afc10</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="s">&#39;author&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">tweepy</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">User</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10990ae10</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="s">&#39;retweeted&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+ <span class="s">&#39;coordinates&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">&#39;source&#39;</span><span class="p">:</span> <span class="s">&#39;My Top Followers in 2010&#39;</span><span class="p">,</span>
+ <span class="s">&#39;in_reply_to_screen_name&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">&#39;id_str&#39;</span><span class="p">:</span> <span class="s">&#39;21041793667694593&#39;</span><span class="p">,</span>
+ <span class="s">&#39;retweet_count&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="s">&#39;in_reply_to_user_id&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">&#39;favorited&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+ <span class="s">&#39;source_url&#39;</span><span class="p">:</span> <span class="s">&#39;http://mytopfollowersin2010.com&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;user&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">tweepy</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">User</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10990ae10</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="s">&#39;geo&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> 
+ <span class="s">&#39;in_reply_to_user_id_str&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> 
+ <span class="s">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span> 
+ <span class="s">&#39;in_reply_to_status_id_str&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> 
+ <span class="s">&#39;place&#39;</span><span class="p">:</span> <span class="bp">None</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>...and the tweepy User object for completness. </p>
+<div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&#39;follow_request_sent&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;profile_use_background_image&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> 
+ <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="mi">132728535</span><span class="p">,</span> 
+ <span class="s">&#39;_api&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">tweepy</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">api</span> <span class="nb">object</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="n">at</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="n">xxxxxxx</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">&gt;</span><span class="p">,</span> 
+ <span class="s">&#39;verified&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;profile_sidebar_fill_color&#39;</span><span class="p">:</span> <span class="s">&#39;C0DFEC&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;profile_text_color&#39;</span><span class="p">:</span> <span class="s">&#39;333333&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;followers_count&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> 
+ <span class="s">&#39;protected&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;location&#39;</span><span class="p">:</span> <span class="s">&#39;Seoul Korea&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;profile_background_color&#39;</span><span class="p">:</span> <span class="s">&#39;022330&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;id_str&#39;</span><span class="p">:</span> <span class="s">&#39;132728535&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;utc_offset&#39;</span><span class="p">:</span> <span class="mi">32400</span><span class="p">,</span> 
+ <span class="s">&#39;statuses_count&#39;</span><span class="p">:</span> <span class="mi">742</span><span class="p">,</span> 
+ <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">&quot;Cars, Musics, Games, Electronics, toys, food, etc... I&#39;m just a typical boy!&quot;</span><span class="p">,</span>
+ <span class="s">&#39;friends_count&#39;</span><span class="p">:</span> <span class="mi">133</span><span class="p">,</span> 
+ <span class="s">&#39;profile_link_color&#39;</span><span class="p">:</span> <span class="s">&#39;0084B4&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;profile_image_url&#39;</span><span class="p">:</span> <span class="s">&#39;http://a1.twimg.com/profile_images/1213351752/_2_2__normal.jpg&#39;</span><span class="p">,</span>
+ <span class="s">&#39;notifications&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;show_all_inline_media&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;geo_enabled&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> 
+ <span class="s">&#39;profile_background_image_url&#39;</span><span class="p">:</span> <span class="s">&#39;http://a2.twimg.com/a/1294785484/images/themes/theme15/bg.png&#39;</span><span class="p">,</span>
+ <span class="s">&#39;screen_name&#39;</span><span class="p">:</span> <span class="s">&#39;jaeeeee&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;lang&#39;</span><span class="p">:</span> <span class="s">&#39;en&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;following&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> 
+ <span class="s">&#39;profile_background_tile&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;favourites_count&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+ <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Jae Jung Chung&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;url&#39;</span><span class="p">:</span> <span class="s">&#39;http://www.carbonize.co.kr&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> 
+ <span class="s">&#39;contributors_enabled&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;time_zone&#39;</span><span class="p">:</span> <span class="s">&#39;Seoul&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;profile_sidebar_border_color&#39;</span><span class="p">:</span> <span class="s">&#39;a8c7f7&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;is_translator&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;listed_count&#39;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Either clone my Github repository locally, or copy and paste the scripts code from above and save it to a file called something like 'tweetArchiver.py'. Make sure you have <a href="https://github.com/tweepy/tweepy">tweepy</a> and <a href="http://pytz.sourceforge.net/">pytz</a> (for timezones correction) installed as well. It's easy if you have pip installed:</p>
+<div class="highlight"><pre>pip install tweepy
+pip install pytz
+</pre></div>
+
+
+<p>Edit the 'archiveFile' variable at the top of the script to the file location you want to be written to:</p>
+<div class="highlight"><pre><span class="n">archiveFile</span> <span class="o">=</span> <span class="s">&quot;/Users/timbueno/Desktop/logDir/twitter.txt&quot;</span>
+</pre></div>
+
+
+<p>Execute my script like so:
+    :::bash
+    python tweetArchiver.py</p>
+<p>After the log file is created you can point the aforementioned IFTTT recipe to the log file for further appending each time you tweet!</p>
+<p>I cooked this up earlier today so there very well could be some bugs. Feel free to let me know of any you find!</p>
+<p><strong>Edit:</strong> As Brett Terpsta has <a href="https://twitter.com/ttscoff/status/221089856728743937">pointed out</a>, my script is limited to around 3200 statuses. The heavier twitter users, and the not so distant future me, will be over this limit. So if you are under 3200 tweets, now is the time to begin archiving!</p>
+<p><strong>Edit 2:</strong>  <a href="https://twitter.com/drdrang/status/221243066588213248">Dr. Drang weighed in</a> on my code as well. My original implementation required the user to authenticate their twitter acount with my application. This ultimately was not necessary and I have removed it from the code above and have pushed the changes to Github.</p>
+<p><strong>Edit 3:</strong> I hope this is the last edit! I've updated the tweetArchiver.py script once again to adjust for timezones. However, this did add a dependencey on the 'pytz' module. But if its good enough for Dr. Drang, its good enough for me!</p>
+
+                    <div class="clear"></div>
+                    <div class="info">
+                        <a href="http://timbueno.com/2012/07/05/tweet-archiver">posted at 11:39 P</a>
+                    
+
+                                                
+                    </div>
+                    <div class="clear"></div>
+                </div>
+<!-- 	<h4 class="date">Jul  5,  2012</h4>
+<div class="post">
+    
+    <h2 class="title">
+	        <a href="http://timbueno.com/2012/07/05/tweet-archiver" rel="bookmark" title="Permanent Link to &quot;Tweet Archiver&quot;">Tweet Archiver</a>
+	    </h2>
+    
+    <div class="summary"><p>Simple plain text tweet archiver</p>
+        <a class="btn primary xsmall" href="http://timbueno.com/2012/07/05/tweet-archiver">more ...</a>
+    </div>
+
+
+</div> -->			
+
+                <h4 class="date">Jan  6,  2013</h4>
+                <div class="post">
+                    <h2 class="title">
+<!--                         <a href="http://timbueno.com/2013/01/06/tweetbot-script" rel="bookmark" title="Permanent Link to &quot;Tweetbot Script&quot;">Tweetbot Script</a> -->
+                    <!-- Linked List Functionality -->
+                                            <a href="http://timbueno.com/2013/01/06/tweetbot-script"
+                        rel="bookmark"
+                        title="Permalink to &quot;Tweetbot Script&quot;"
+                        >Tweetbot Script</a>
+                                        </h2>
+                    
+                    <p>On my Macbook, I often run into links to specific posts on Twitter from sites such as Hacker News. However I'd prefer it if these links did not open in Safari, but Tweetbot instead. I wrote a quick script that does exactly that. Assign my script to a hotkey of your choosing using something like Keyboard Maestro and you are all set.</p>
+<p>If you are viewing a person's Twitter profile and invoke the script it will open their profile in Tweetbot. Specific tweets will also open in Tweetbot.</p>
+<p>Unfortunately, this python script relies on Applescript. If there is a more convienient way to obtain the URL of the currently active tab in Safari or to easily launch URLs I would greatly appreciate the information.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">Popen</span><span class="p">,</span> <span class="n">PIPE</span> 
+<span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+
+<span class="c"># Set Default Browser</span>
+<span class="c">#browser = &quot;WebKit&quot;</span>
+<span class="n">browser</span> <span class="o">=</span> <span class="s">&quot;Safari&quot;</span>
+
+<span class="c"># Get url address from safari / webkit</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="s">&quot;/usr/bin/osascript -e &#39;tell application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s">&#39; -e &#39;get URL of current tab of window 1&#39; -e &#39;end tell&#39;&quot;</span> <span class="o">%</span> <span class="n">browser</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+<span class="c"># Get index of current tab</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="s">&quot;/usr/bin/osascript -e &#39;tell application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s">&#39; -e &#39;get index of current tab of window 1&#39; -e &#39;end tell&#39;&quot;</span> <span class="o">%</span> <span class="n">browser</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+<span class="n">tindex</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+<span class="c"># Parse URL</span>
+<span class="n">o</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="k">if</span> <span class="s">&#39;twitter&#39;</span> <span class="ow">in</span> <span class="n">o</span><span class="o">.</span><span class="n">netloc</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span> <span class="o">!=</span> <span class="s">&#39;/&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s">&#39;status&#39;</span> <span class="ow">in</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+            <span class="c"># Open specific tweet in tweetbot</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="s">&quot;tweetbot:/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># Open user profile in tweetbot</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="s">&quot;tweetbot:///user_profile/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Not a Twitter URL...&quot;</span>
+
+<span class="c"># Open Twitter URL in Tweetbot</span>
+<span class="k">if</span> <span class="n">string</span> <span class="o">!=</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">cmdList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c"># Send to tweetbot, close blank safari window, switch back to original tab</span>
+    <span class="n">cmdList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;&quot;&quot;osascript -e &#39;tell application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s"> to open location </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s">&#39;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">string</span><span class="p">))</span>
+    <span class="n">cmdList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;&quot;&quot;osascript -e &#39;tell application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s"> to close current tab of window 1&#39;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="n">browser</span><span class="p">)</span>
+    <span class="n">cmdList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;&quot;&quot;osascript -e &#39;tell front window of application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s"> to set current tab to tab </span><span class="si">%s</span><span class="s">&#39;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">tindex</span><span class="p">))</span>
+
+    <span class="c"># Execute Commands</span>
+    <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">cmdList</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Also on <a href="https://github.com/timbueno/tinyScripts/blob/master/tweetbot.py">Github</a></p>
+
+                    <div class="clear"></div>
+                    <div class="info">
+                        <a href="http://timbueno.com/2013/01/06/tweetbot-script">posted at  4:53 P</a>
+                    
+
+                                                    <div class="tags">
+                                <a href="http://timbueno.com/tag/scripting.html">scripting</a>
+                                <a href="http://timbueno.com/tag/python.html">python</a>
+                                <a href="http://timbueno.com/tag/twitter.html">twitter</a>
+                            </div>                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+<!-- 	<h4 class="date">Jan  6,  2013</h4>
+<div class="post">
+    
+    <h2 class="title">
+	        <a href="http://timbueno.com/2013/01/06/tweetbot-script" rel="bookmark" title="Permanent Link to &quot;Tweetbot Script&quot;">Tweetbot Script</a>
+	    </h2>
+    
+    <div class="summary"><p>Tiny script to automate Tweetbot</p>
+        <a class="btn primary xsmall" href="http://timbueno.com/2013/01/06/tweetbot-script">more ...</a>
+    </div>
+
+
+</div> -->
+                <div class="clear"></div>
+                <div id="footer">
+                    <p>
+<!--                     Mockingbird theme by <a href="http://nevanscott.com/">Nevan Scott</a>
+                    &middot; -->
+                    <!-- <a class="atom" href="http://timbueno.com/feeds/all.atom.xml">Feed</a> -->
+                    <a class="atom" href="feeds/all.atom.xml">Feed</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-32818972-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    </body>
+</html>

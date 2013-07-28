@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Tim Bueno &middot; Comic Book Previews</title>
+        <link rel="shortcut icon" href="http://timbueno.com/favicon.ico" />
+        <link href="http://timbueno.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Tim Bueno Atom Feed" />
+                
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/screen.css" type="text/css" />
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/pygments.css" type="text/css" />
+
+
+    </head>
+    <body>
+        <div id="header">
+            <ul id="nav">
+                <li><a href="http://timbueno.com">Home</a></li>
+                <li><a href="http://timbueno.com/about">About</a></li>
+                <li><a href="http://timbueno.com/projects">Projects</a></li>
+                <li><a href="http://timbueno.com/archives.html">Archives</a></li>
+            </ul>
+            <div class="header_box">
+                <h1><a href="http://timbueno.com">Tim Bueno</a></h1>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="content">
+                <h4 class="date">Apr  1,  2013</h4>
+                <div class="post">
+                    <h2 class="title">
+<!--                         <a href="http://timbueno.com/2013/04/01/comic-book-alfred" rel="bookmark" title="Permanent Link to &quot;Comic Book Previews&quot;">Comic Book Previews</a> -->
+                    <!-- Linked List Functionality -->
+                                            <a href="http://timbueno.com/2013/04/01/comic-book-alfred"
+                        rel="bookmark"
+                        title="Permalink to &quot;Comic Book Previews&quot;"
+                        >Comic Book Previews</a>
+                                        </h2>
+                    
+                    <p><a href="http://www.alfredapp.com/">Alfred 2</a> came out a few weeks ago and I am loving the upgrade. The new workflow system is amazingly powerful and some of the things people are coming up with are great.</p>
+<p>I have been playing around with building my own workflows since the release. Alfred's workflow system is very flexible in that it allows you to use whatever scripting language you are most comfortable with to generate the <a href="http://www.alfredforum.com/topic/5-generating-feedback-in-workflows/">Feedback XML</a> necessary for displaying your content in the Alfred pop-up. My language of choice is once again Python. <a href="http://daniel.sh/alfred.html">Daniel Shannon</a> has written alp, a python module intended speed up the development of Alfred workflows written in Python and it works very well.</p>
+<p>Each week I check <a href="http://www.previewsworld.com/Home/1/1/71/952">PreviewsWorld</a> to see the comics that are coming out. I then add comics that I am interested in to my calendar. I've written an Alfred workflow to speed up this process.</p>
+<p><img alt="Next Weeks Comics" src="http://timbueno.com/static/images/PreviewsComics/comicsnext.png" /></p>
+<p>The workflow takes two inputs: <em>this</em> and <em>next</em>. As you would expect, <em>this</em> returns this weeks comics while <em>next</em> returns next weeks comics. </p>
+<p>Actioning on a publisher will take you to a list of the comics that publisher is releasing that week. </p>
+<p><img alt="Image Comics" src="http://timbueno.com/static/images/PreviewsComics/comicsimage.png" /></p>
+<p>Actioning on a comic book will bring you to that comics description page on PreviewsWorld. Even more useful however is what happens when you hold command while actioning. </p>
+<p>When command is held while actioning on a comic Fantastical is opened with the text field pre-populated with the comic and the date. If Fantastical is not installed, nothing will happen.</p>
+<p>You can see the source and keep updated on the project over on <a href="https://github.com/timbueno/BuenoAlfred">Github</a>. I encourage you to look into my use of autocomplete to assist in moving between pages in the workflow.</p>
+<p>Writing this script has been a fun learning experience and I hope to make a few more of these workflows as I get the time. Let me know if you like it.</p>
+
+                    <div class="clear"></div>
+                    <div class="info">
+                        <a href="http://timbueno.com/2013/04/01/comic-book-alfred">posted at 10:20 P</a>
+                    
+
+                                                    <div class="tags">
+                                <a href="http://timbueno.com/tag/alfred.html">alfred</a>
+                                <a href="http://timbueno.com/tag/python.html">python</a>
+                            </div>                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+                <div id="footer">
+                    <p>
+<!--                     Mockingbird theme by <a href="http://nevanscott.com/">Nevan Scott</a>
+                    &middot; -->
+                    <!-- <a class="atom" href="http://timbueno.com/feeds/all.atom.xml">Feed</a> -->
+                    <a class="atom" href="feeds/all.atom.xml">Feed</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-32818972-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    </body>
+</html>

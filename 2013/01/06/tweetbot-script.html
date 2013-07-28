@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Tim Bueno &middot; Tweetbot Script</title>
+        <link rel="shortcut icon" href="http://timbueno.com/favicon.ico" />
+        <link href="http://timbueno.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Tim Bueno Atom Feed" />
+                
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/screen.css" type="text/css" />
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/pygments.css" type="text/css" />
+
+
+    </head>
+    <body>
+        <div id="header">
+            <ul id="nav">
+                <li><a href="http://timbueno.com">Home</a></li>
+                <li><a href="http://timbueno.com/about">About</a></li>
+                <li><a href="http://timbueno.com/projects">Projects</a></li>
+                <li><a href="http://timbueno.com/archives.html">Archives</a></li>
+            </ul>
+            <div class="header_box">
+                <h1><a href="http://timbueno.com">Tim Bueno</a></h1>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="content">
+                <h4 class="date">Jan  6,  2013</h4>
+                <div class="post">
+                    <h2 class="title">
+<!--                         <a href="http://timbueno.com/2013/01/06/tweetbot-script" rel="bookmark" title="Permanent Link to &quot;Tweetbot Script&quot;">Tweetbot Script</a> -->
+                    <!-- Linked List Functionality -->
+                                            <a href="http://timbueno.com/2013/01/06/tweetbot-script"
+                        rel="bookmark"
+                        title="Permalink to &quot;Tweetbot Script&quot;"
+                        >Tweetbot Script</a>
+                                        </h2>
+                    
+                    <p>On my Macbook, I often run into links to specific posts on Twitter from sites such as Hacker News. However I'd prefer it if these links did not open in Safari, but Tweetbot instead. I wrote a quick script that does exactly that. Assign my script to a hotkey of your choosing using something like Keyboard Maestro and you are all set.</p>
+<p>If you are viewing a person's Twitter profile and invoke the script it will open their profile in Tweetbot. Specific tweets will also open in Tweetbot.</p>
+<p>Unfortunately, this python script relies on Applescript. If there is a more convienient way to obtain the URL of the currently active tab in Safari or to easily launch URLs I would greatly appreciate the information.</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">Popen</span><span class="p">,</span> <span class="n">PIPE</span> 
+<span class="kn">from</span> <span class="nn">urlparse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+
+<span class="c"># Set Default Browser</span>
+<span class="c">#browser = &quot;WebKit&quot;</span>
+<span class="n">browser</span> <span class="o">=</span> <span class="s">&quot;Safari&quot;</span>
+
+<span class="c"># Get url address from safari / webkit</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="s">&quot;/usr/bin/osascript -e &#39;tell application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s">&#39; -e &#39;get URL of current tab of window 1&#39; -e &#39;end tell&#39;&quot;</span> <span class="o">%</span> <span class="n">browser</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+<span class="n">url</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+<span class="c"># Get index of current tab</span>
+<span class="n">cmd</span> <span class="o">=</span> <span class="s">&quot;/usr/bin/osascript -e &#39;tell application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s">&#39; -e &#39;get index of current tab of window 1&#39; -e &#39;end tell&#39;&quot;</span> <span class="o">%</span> <span class="n">browser</span>
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">PIPE</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+<span class="n">tindex</span> <span class="o">=</span> <span class="n">pipe</span><span class="o">.</span><span class="n">readlines</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+<span class="c"># Parse URL</span>
+<span class="n">o</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s">&#39;&#39;</span>
+<span class="k">if</span> <span class="s">&#39;twitter&#39;</span> <span class="ow">in</span> <span class="n">o</span><span class="o">.</span><span class="n">netloc</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span> <span class="o">!=</span> <span class="s">&#39;/&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s">&#39;status&#39;</span> <span class="ow">in</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+            <span class="c"># Open specific tweet in tweetbot</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="s">&quot;tweetbot:/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># Open user profile in tweetbot</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="s">&quot;tweetbot:///user_profile/</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">o</span><span class="o">.</span><span class="n">path</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">&quot;Not a Twitter URL...&quot;</span>
+
+<span class="c"># Open Twitter URL in Tweetbot</span>
+<span class="k">if</span> <span class="n">string</span> <span class="o">!=</span> <span class="s">&#39;&#39;</span><span class="p">:</span>
+    <span class="n">cmdList</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c"># Send to tweetbot, close blank safari window, switch back to original tab</span>
+    <span class="n">cmdList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;&quot;&quot;osascript -e &#39;tell application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s"> to open location </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s">&#39;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">string</span><span class="p">))</span>
+    <span class="n">cmdList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;&quot;&quot;osascript -e &#39;tell application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s"> to close current tab of window 1&#39;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="n">browser</span><span class="p">)</span>
+    <span class="n">cmdList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;&quot;&quot;osascript -e &#39;tell front window of application </span><span class="se">\&quot;</span><span class="si">%s</span><span class="se">\&quot;</span><span class="s"> to set current tab to tab </span><span class="si">%s</span><span class="s">&#39;&quot;&quot;&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">tindex</span><span class="p">))</span>
+
+    <span class="c"># Execute Commands</span>
+    <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">cmdList</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Also on <a href="https://github.com/timbueno/tinyScripts/blob/master/tweetbot.py">Github</a></p>
+
+                    <div class="clear"></div>
+                    <div class="info">
+                        <a href="http://timbueno.com/2013/01/06/tweetbot-script">posted at  4:53 P</a>
+                    
+
+                                                    <div class="tags">
+                                <a href="http://timbueno.com/tag/scripting.html">scripting</a>
+                                <a href="http://timbueno.com/tag/python.html">python</a>
+                                <a href="http://timbueno.com/tag/twitter.html">twitter</a>
+                            </div>                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+                <div id="footer">
+                    <p>
+<!--                     Mockingbird theme by <a href="http://nevanscott.com/">Nevan Scott</a>
+                    &middot; -->
+                    <!-- <a class="atom" href="http://timbueno.com/feeds/all.atom.xml">Feed</a> -->
+                    <a class="atom" href="feeds/all.atom.xml">Feed</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-32818972-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    </body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Tim Bueno &middot; articles tagged "programming"</title>
+        <link rel="shortcut icon" href="http://timbueno.com/favicon.ico" />
+        <link href="http://timbueno.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Tim Bueno Atom Feed" />
+                
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/screen.css" type="text/css" />
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/pygments.css" type="text/css" />
+
+
+    </head>
+    <body>
+        <div id="header">
+            <ul id="nav">
+                <li class="ephemeral selected"><a href="http://timbueno.com/tag/programming.html">programming</a></li>
+                <li><a href="http://timbueno.com">Home</a></li>
+                <li><a href="http://timbueno.com/about">About</a></li>
+                <li><a href="http://timbueno.com/projects">Projects</a></li>
+                <li><a href="http://timbueno.com/archives.html">Archives</a></li>
+            </ul>
+            <div class="header_box">
+                <h1><a href="http://timbueno.com">Tim Bueno</a></h1>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="content">			
+
+                <h4 class="date">Jun 27,  2012</h4>
+                <div class="post">
+                    <h2 class="title">
+<!--                         <a href="http://timbueno.com/2012/06/27/pinboard-plus-alfred" rel="bookmark" title="Permanent Link to &quot;Pinboard plus Alfred&quot;">Pinboard plus Alfred</a> -->
+                    <!-- Linked List Functionality -->
+                                            <a href="http://timbueno.com/2012/06/27/pinboard-plus-alfred"
+                        rel="bookmark"
+                        title="Permalink to &quot;Pinboard plus Alfred&quot;"
+                        >Pinboard plus Alfred</a>
+                                        </h2>
+                    
+                    <p><img alt="Alfred and Pinboard" src="http://timbueno.com/static/images/Alfred_Pinboard.png" /></p>
+<p>A couple months back<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> I quickly threw together an Applescript that allowed easy submission of links to <a href="http://pinboard.in/">Pinboard</a> (my favorite bookmarking utility) from the convenience of <a href="http://http://www.alfredapp.com/">Alfred</a> (the do-pretty-much-everything app launcher). If you use both and ALSO happen to use Google Chrome on a computer that runs Apple's OS X, you will <strong>love</strong> the convenience. A long shot, I know. </p>
+<p>To activate:</p>
+<ol>
+<li>Summon Alfred via your hot key</li>
+<li>Type “pin tag1 tag2 tag3 ...”</li>
+<li>Press Enter</li>
+<li>Growl will notify you if the submission was a success!</li>
+</ol>
+<p>You must use tags for the script to work. Right now, I find it <em>convenient</em> that it forces me to tag my bookmarks correctly. However, I may look into removing this limitation in the future.</p>
+<p><a href="http://dl.dropbox.com/u/1325873/tumblr%20files/Send%20to%20Pinboard%20v1_1.alfredextension" title="They like me, they really like me!">Download</a> </p>
+<p>I have included the Applescript below for anyone who wants to probe. I realize there is probably a quicker/better way to accomplish this but it works and I wrote it when I was just starting out with Applescript. </p>
+<p>Currently the script only works in Google Chrome. I would love to bring functionality over to Safari and that may be something I look into now that <a href="http://www.macworld.com/article/1165466/mountain_lion_hands_on_with_safari.html">Safari in Mountain Lion</a> has an omnibar like Chrome's. </p>
+<p>I have a few of these "convenience" scripts lying around that I will try and put on Github in the coming weeks.</p>
+<div class="highlight"><pre><span class="c">--****************************************</span>
+<span class="c">-- Name: Chrome to Pinboard</span>
+<span class="c">-- Language: Applescript</span>
+<span class="c">-- Author: Tim Bueno</span>
+<span class="c">-- Website: http://www.timbueno.com</span>
+<span class="c">-- Date: 4/11/2011</span>
+<span class="c">--****************************************</span>
+
+<span class="k">on</span> <span class="nv">alfred_script</span><span class="p">(</span><span class="nv">q</span><span class="p">)</span>
+  <span class="k">try</span>
+    <span class="k">set</span> <span class="nv">userName</span> <span class="k">to</span> <span class="s2">&quot;USERNAME_GOES_HERE&quot;</span>
+    <span class="k">set</span> <span class="nv">userPass</span> <span class="k">to</span> <span class="s2">&quot;PASSWORD_GOES_HERE&quot;</span>
+
+    <span class="k">set</span> <span class="nv">inputt</span> <span class="k">to</span> <span class="nv">q</span> <span class="k">as </span><span class="nc">text</span>
+
+    <span class="k">set</span> <span class="nv">tmp</span> <span class="k">to</span> <span class="nv">splitString</span><span class="p">(</span><span class="nv">inputt</span> <span class="k">as </span><span class="nc">text</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="s2">&quot;+&quot;</span>
+        <span class="k">set</span> <span class="nv">q</span> <span class="k">to</span> <span class="nv">tmp</span> <span class="k">as </span><span class="nc">string</span>
+        <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">tell</span> <span class="nb">application</span> <span class="s2">&quot;Google Chrome&quot;</span>
+        <span class="k">set</span> <span class="nv">theURL</span> <span class="k">to</span> <span class="nv">URL</span> <span class="k">of</span> <span class="na">active</span> <span class="no">tab</span> <span class="k">of</span> <span class="nb">first</span> <span class="na">window</span>
+        <span class="k">set</span> <span class="nv">theDesc</span> <span class="k">to</span> <span class="na">title</span> <span class="k">of</span> <span class="na">active</span> <span class="no">tab</span> <span class="k">of</span> <span class="nb">first</span> <span class="na">window</span>
+    <span class="k">end</span> <span class="k">tell</span>
+
+    <span class="k">set</span> <span class="nv">tmp</span> <span class="k">to</span> <span class="nv">splitString</span><span class="p">(</span><span class="nv">theDesc</span> <span class="k">as </span><span class="nc">text</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="s2">&quot;+&quot;</span>
+    <span class="k">set</span> <span class="nv">theDesc</span> <span class="k">to</span> <span class="nv">tmp</span> <span class="k">as </span><span class="nc">string</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="no">space</span>
+    <span class="k">set</span> <span class="nv">growlDesc</span> <span class="k">to</span> <span class="nv">tmp</span> <span class="k">as </span><span class="nc">string</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="s2">&quot;&quot;</span>
+
+    <span class="k">set</span> <span class="nv">shellScript</span> <span class="k">to</span> <span class="p">(</span><span class="s2">&quot;curl --url \&quot;https://&quot;</span> <span class="o">&amp;</span> <span class="nv">userName</span> <span class="o">&amp;</span> <span class="s2">&quot;:&quot;</span> <span class="o">&amp;</span> <span class="nv">userPass</span> <span class="o">&amp;</span> <span class="se">¬</span>
+        <span class="s2">&quot;@api.pinboard.in/v1/posts/add?url=&quot;</span> <span class="o">&amp;</span> <span class="nv">theURL</span> <span class="o">&amp;</span> <span class="s2">&quot;&amp;description=&quot;</span> <span class="o">&amp;</span> <span class="nv">theDesc</span> <span class="o">&amp;</span> <span class="s2">&quot;&amp;tags=&quot;</span> <span class="o">&amp;</span> <span class="nv">q</span> <span class="o">&amp;</span> <span class="s2">&quot;\&quot;&quot;</span><span class="p">)</span>
+
+    <span class="k">set</span> <span class="nv">PnbdResponse</span> <span class="k">to</span> <span class="p">(</span><span class="nb">do shell script</span> <span class="nv">shellScript</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nv">PnbdResponse</span> <span class="ow">contains</span> <span class="s2">&quot;code=\&quot;done\&quot;&quot;</span> <span class="k">then</span>
+        <span class="k">tell</span> <span class="nb">application</span> <span class="s2">&quot;Growl&quot;</span> <span class="k">to</span> <span class="nv">notify</span> <span class="nv">with</span> <span class="na">name</span> <span class="se">¬</span>
+            <span class="s2">&quot;Extension Output&quot;</span> <span class="na">title</span> <span class="se">¬</span>
+            <span class="s2">&quot;Sent to Pinboard&quot;</span> <span class="nv">description</span> <span class="se">¬</span>
+            <span class="s2">&quot;\&quot;&quot;</span> <span class="o">&amp;</span> <span class="nv">growlDesc</span> <span class="o">&amp;</span> <span class="s2">&quot;\&quot; has been saved!&quot;</span> <span class="nb">application</span> <span class="na">name</span> <span class="se">¬</span>
+            <span class="s2">&quot;Alfred&quot;</span> <span class="nv">icon</span> <span class="k">of</span> <span class="nb">application</span> <span class="s2">&quot;Alfred&quot;</span>
+    <span class="k">else</span>
+        <span class="k">tell</span> <span class="nb">application</span> <span class="s2">&quot;Growl&quot;</span> <span class="k">to</span> <span class="nv">notify</span> <span class="nv">with</span> <span class="na">name</span> <span class="se">¬</span>
+            <span class="s2">&quot;Extension Output&quot;</span> <span class="na">title</span> <span class="se">¬</span>
+            <span class="s2">&quot;Failed! - Sent to Pinboard&quot;</span> <span class="nv">description</span> <span class="se">¬</span>
+            <span class="s2">&quot;There was a problem. Check your username and password.&quot;</span> <span class="nb">application</span> <span class="na">name</span> <span class="se">¬</span>
+            <span class="s2">&quot;Alfred&quot;</span> <span class="nv">icon</span> <span class="k">of</span> <span class="nb">application</span> <span class="s2">&quot;Alfred&quot;</span>
+    <span class="k">end</span> <span class="k">if</span>
+<span class="k">end</span> <span class="k">try</span>
+<span class="k">end</span> <span class="nv">alfred_script</span>
+
+<span class="c">--****************************************</span>
+<span class="c">-- Split String</span>
+<span class="c">--(thanks to Geert JM Vanderkelen for this code! </span>
+<span class="c">--http://geert.vanderkelen.org/post/241/)</span>
+<span class="c">--****************************************</span>
+<span class="k">to</span> <span class="nv">splitString</span><span class="p">(</span><span class="nv">aString</span><span class="p">,</span> <span class="nv">delimiter</span><span class="p">)</span>
+    <span class="k">set</span> <span class="nv">retVal</span> <span class="k">to</span> <span class="p">{}</span>
+    <span class="k">set</span> <span class="nv">prevDelimiter</span> <span class="k">to</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span>
+    <span class="nb">log</span> <span class="nv">delimiter</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="p">{</span><span class="nv">delimiter</span><span class="p">}</span>
+    <span class="k">set</span> <span class="nv">retVal</span> <span class="k">to</span> <span class="nb">every</span> <span class="nb">text</span> <span class="nb">item</span> <span class="k">of</span> <span class="nv">aString</span>
+    <span class="k">set</span> <span class="no">AppleScript</span>&#39;s <span class="no">text item delimiters</span> <span class="k">to</span> <span class="nv">prevDelimiter</span>
+    <span class="no">return</span> <span class="nv">retVal</span>
+<span class="k">end</span> <span class="nv">splitString</span>
+</pre></div>
+
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This is <em>sort of</em> a repost from an older blog of mine. This isn't plagiarism I swear.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+                    <div class="clear"></div>
+                    <div class="info">
+                        <a href="http://timbueno.com/2012/06/27/pinboard-plus-alfred">posted at  6:10 P</a>
+                    
+
+                                                    <div class="tags">
+                                <a href="http://timbueno.com/tag/alfred.html">alfred</a>
+                                <a href="http://timbueno.com/tag/applescript.html">applescript</a>
+                                <a href="http://timbueno.com/tag/programming.html" class="selected">programming</a>
+                            </div>                        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+<!-- 	<h4 class="date">Jun 27,  2012</h4>
+<div class="post">
+    
+    <h2 class="title">
+	        <a href="http://timbueno.com/2012/06/27/pinboard-plus-alfred" rel="bookmark" title="Permanent Link to &quot;Pinboard plus Alfred&quot;">Pinboard plus Alfred</a>
+	    </h2>
+    
+    <div class="summary"><p>Alfred 1 script to send to pinboard</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This is <em>sort of</em> a repost from an older blog of mine. This isn't plagiarism I swear.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+        <a class="btn primary xsmall" href="http://timbueno.com/2012/06/27/pinboard-plus-alfred">more ...</a>
+    </div>
+
+
+</div> -->
+                <div class="clear"></div>
+                <div id="footer">
+                    <p>
+<!--                     Mockingbird theme by <a href="http://nevanscott.com/">Nevan Scott</a>
+                    &middot; -->
+                    <!-- <a class="atom" href="http://timbueno.com/feeds/all.atom.xml">Feed</a> -->
+                    <a class="atom" href="feeds/all.atom.xml">Feed</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-32818972-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    </body>
+</html>

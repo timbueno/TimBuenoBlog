@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Tim Bueno &middot; Tweet Archiver</title>
+        <link rel="shortcut icon" href="http://timbueno.com/favicon.ico" />
+        <link href="http://timbueno.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Tim Bueno Atom Feed" />
+                
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/screen.css" type="text/css" />
+        <link rel="stylesheet" href="http://timbueno.com/theme/css/pygments.css" type="text/css" />
+
+
+    </head>
+    <body>
+        <div id="header">
+            <ul id="nav">
+                <li><a href="http://timbueno.com">Home</a></li>
+                <li><a href="http://timbueno.com/about">About</a></li>
+                <li><a href="http://timbueno.com/projects">Projects</a></li>
+                <li><a href="http://timbueno.com/archives.html">Archives</a></li>
+            </ul>
+            <div class="header_box">
+                <h1><a href="http://timbueno.com">Tim Bueno</a></h1>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="content">
+                <h4 class="date">Jul  5,  2012</h4>
+                <div class="post">
+                    <h2 class="title">
+<!--                         <a href="http://timbueno.com/2012/07/05/tweet-archiver" rel="bookmark" title="Permanent Link to &quot;Tweet Archiver&quot;">Tweet Archiver</a> -->
+                    <!-- Linked List Functionality -->
+                                            <a href="https://github.com/timbueno/SimpleTweetArchiver"
+                        rel="bookmark"
+                        title="External Link"
+                        >Tweet Archiver</a>
+                                        </h2>
+                    
+                    <p>Earlier this week I became interested in a discussion floating around the internet dealing with a very cool IFTTT recipe. <a href="http://ifttt.com/">IFTTT</a> allows for easy scripting between some of your favorite web services. While the functionality is certaintly limited, creative individuals are cooking up cool uses for the service. This <a href="http://ifttt.com/recipes/37991">particular recipe</a> archives every status update you send to twitter to an extremely light-weight plain text file. The plain text format is great as it will always be readable and is not bound to any particular service or app.</p>
+<p>The only issue with the IFTTT  recipe is that it will not archive any tweet that you posted <em>before</em> setting the recipe up, limiting its usefulness. Both <a href="https://twitter.com/ttscoff/status/220860115467763712">Brett Terpstra</a> and <a href="http://www.leancrew.com/all-this/2012/07/archiving-tweets/">Dr. Drang</a> created excellent solutions, but they assume that you have access to your old tweets in other locations, such as <a href="http://thinkupapp.com/">ThinkUp</a>. While ThinkUp is nice, its not very practical to set up if you are only interested in using it once.</p>
+<p>Today, I wrote a quick python script that grabs every tweet you have ever posted, and writes it to a file in the same format as the IFTTT recipe mentioned earlier. You can modify the output to fit any custom style fairly easily as well.</p>
+<p>My current 'twitter.txt' archive file has each tweet formatted like this:
+<pre>
+RT @kanyewest: I love me
+July 31, 2010 at 05:57PM
+http://twitter.com/timbueno/20008539872</p>
+<hr />
+</pre>
+
+<p>You can find the Github page <a href="https://github.com/timbueno/SimpleTweetArchiver">here</a>. I have also posted the code (as it stands right now) below:</p>
+<div class="highlight"><pre><span class="c"># tweetArchiver.py</span>
+<span class="c">#</span>
+<span class="c"># Quickly archive your tweets to a plain text file.</span>
+<span class="c">#</span>
+<span class="c"># This script is limited to retrieving only your</span>
+<span class="c"># 3,200 most recent tweets (you have twitter</span>
+<span class="c"># to thank for that)</span>
+<span class="c">#</span>
+<span class="c"># Created by: Tim Bueno</span>
+<span class="c"># Website: http://www.timbueno.com</span>
+<span class="c">#</span>
+<span class="c"># USAGE: python tweetArchiver.py</span>
+
+<span class="kn">import</span> <span class="nn">tweepy</span>
+<span class="kn">import</span> <span class="nn">codecs</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+
+<span class="n">utc</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">utc</span>
+
+<span class="c"># Archive file location</span>
+<span class="n">archiveFile</span> <span class="o">=</span> <span class="s">&quot;/Users/timbueno/Desktop/logDir/twitter.txt&quot;</span>
+<span class="n">theUserName</span> <span class="o">=</span> <span class="s">&#39;timbueno&#39;</span>
+<span class="n">homeTZ</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="s">&#39;US/Eastern&#39;</span><span class="p">)</span>
+
+<span class="c"># Create Twitter API Object</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">()</span>
+
+<span class="c"># helpful variables</span>
+<span class="n">status_list</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># Create empty list to hold statuses</span>
+<span class="n">cur_status_count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c"># Request first status page from twitter</span>
+<span class="n">statuses</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">include_rts</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">screen_name</span><span class="o">=</span><span class="n">theUserName</span><span class="p">)</span>
+<span class="c"># Get User information for display</span>
+<span class="n">theUser</span> <span class="o">=</span> <span class="n">statuses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">author</span>
+<span class="n">total_status_count</span> <span class="o">=</span> <span class="n">theUser</span><span class="o">.</span><span class="n">statuses_count</span>
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- Archiving &quot;</span><span class="o">+</span><span class="n">theUser</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s">&quot;&#39;s tweets&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- Archive file:&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- &quot;</span> <span class="o">+</span> <span class="n">archiveFile</span>
+<span class="k">print</span> <span class="s">&quot;-&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- http://www.timbueno.com&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+
+<span class="k">while</span> <span class="n">statuses</span> <span class="o">!=</span> <span class="p">[]:</span>
+    <span class="n">cur_status_count</span> <span class="o">=</span> <span class="n">cur_status_count</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">statuses</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">statuses</span><span class="p">:</span>
+        <span class="n">status_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+
+    <span class="c"># Get tweet id from last status in each page</span>
+    <span class="n">theMaxId</span> <span class="o">=</span> <span class="n">statuses</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+    <span class="n">theMaxId</span> <span class="o">=</span> <span class="n">theMaxId</span> <span class="o">-</span> <span class="mi">1</span>
+
+    <span class="c"># Get new page of statuses based on current id location</span>
+    <span class="n">statuses</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">include_rts</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">max_id</span><span class="o">=</span><span class="n">theMaxId</span><span class="p">,</span> <span class="n">screen_name</span><span class="o">=</span><span class="n">theUserName</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s"> of </span><span class="si">%d</span><span class="s"> tweets processed...&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cur_status_count</span><span class="p">,</span> <span class="n">total_status_count</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+<span class="k">print</span> <span class="s">&quot;Total Statuses Retrieved: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">status_list</span><span class="p">))</span>
+<span class="k">print</span> <span class="s">&quot;Writing statuses to log file:&quot;</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">archiveFile</span><span class="p">,</span> <span class="s">&#39;a&#39;</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">status_list</span><span class="p">):</span>
+    <span class="n">theTime</span> <span class="o">=</span> <span class="n">utc</span><span class="o">.</span><span class="n">localize</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">created_at</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">homeTZ</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">text</span> <span class="o">+</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">theTime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%B </span><span class="si">%d</span><span class="s">, %Y at %I:%M%p</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">))</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;http://twitter.com/&#39;</span><span class="o">+</span><span class="n">status</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">screen_name</span><span class="o">+</span><span class="s">&#39;/status/&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">id</span><span class="p">)</span><span class="o">+</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;- - - - - </span><span class="se">\n\n</span><span class="s">&#39;</span><span class="p">)</span>
+
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">print</span> <span class="s">&quot;Finished!&quot;</span>
+<span class="k">print</span> <span class="s">&quot;- - - - - - - - - - - - - - - - -&quot;</span>
+</pre></div>
+
+
+<p>The "status_list" contains any number of tweepy Status object. This list is looped over and each status object is available to process in any way you choose. The code to where this data is formatted begins on line 57. The status object has a <strong>ton</strong> of content about each individual tweet. I've included an example structure of the status object below </p>
+<div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&#39;contributors&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> 
+ <span class="s">&#39;truncated&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;text&#39;</span><span class="p">:</span> <span class="s">&#39;@ERCourtney Working with anyone</span><span class="se">\u2019</span><span class="s">s code but your own is a very frustrating experience most of the time. I hear ya.&#39;</span><span class="p">,</span>
+ <span class="s">&#39;in_reply_to_status_id&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="mi">220264265720930304</span><span class="p">,</span>
+ <span class="s">&#39;_api&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">tweepy</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">API</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x1096afc10</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="s">&#39;author&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">tweepy</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">User</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10990ae10</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="s">&#39;retweeted&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+ <span class="s">&#39;coordinates&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">&#39;source&#39;</span><span class="p">:</span> <span class="s">&#39;My Top Followers in 2010&#39;</span><span class="p">,</span>
+ <span class="s">&#39;in_reply_to_screen_name&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">&#39;id_str&#39;</span><span class="p">:</span> <span class="s">&#39;21041793667694593&#39;</span><span class="p">,</span>
+ <span class="s">&#39;retweet_count&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="s">&#39;in_reply_to_user_id&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span>
+ <span class="s">&#39;favorited&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+ <span class="s">&#39;source_url&#39;</span><span class="p">:</span> <span class="s">&#39;http://mytopfollowersin2010.com&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;user&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">tweepy</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">User</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10990ae10</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="s">&#39;geo&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> 
+ <span class="s">&#39;in_reply_to_user_id_str&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> 
+ <span class="s">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">27</span><span class="p">),</span> 
+ <span class="s">&#39;in_reply_to_status_id_str&#39;</span><span class="p">:</span> <span class="bp">None</span><span class="p">,</span> 
+ <span class="s">&#39;place&#39;</span><span class="p">:</span> <span class="bp">None</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>...and the tweepy User object for completness. </p>
+<div class="highlight"><pre><span class="p">{</span>
+ <span class="s">&#39;follow_request_sent&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;profile_use_background_image&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> 
+ <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="mi">132728535</span><span class="p">,</span> 
+ <span class="s">&#39;_api&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">tweepy</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">api</span> <span class="nb">object</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="n">at</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="n">xxxxxxx</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="o">&gt;</span><span class="p">,</span> 
+ <span class="s">&#39;verified&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;profile_sidebar_fill_color&#39;</span><span class="p">:</span> <span class="s">&#39;C0DFEC&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;profile_text_color&#39;</span><span class="p">:</span> <span class="s">&#39;333333&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;followers_count&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> 
+ <span class="s">&#39;protected&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;location&#39;</span><span class="p">:</span> <span class="s">&#39;Seoul Korea&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;profile_background_color&#39;</span><span class="p">:</span> <span class="s">&#39;022330&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;id_str&#39;</span><span class="p">:</span> <span class="s">&#39;132728535&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;utc_offset&#39;</span><span class="p">:</span> <span class="mi">32400</span><span class="p">,</span> 
+ <span class="s">&#39;statuses_count&#39;</span><span class="p">:</span> <span class="mi">742</span><span class="p">,</span> 
+ <span class="s">&#39;description&#39;</span><span class="p">:</span> <span class="s">&quot;Cars, Musics, Games, Electronics, toys, food, etc... I&#39;m just a typical boy!&quot;</span><span class="p">,</span>
+ <span class="s">&#39;friends_count&#39;</span><span class="p">:</span> <span class="mi">133</span><span class="p">,</span> 
+ <span class="s">&#39;profile_link_color&#39;</span><span class="p">:</span> <span class="s">&#39;0084B4&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;profile_image_url&#39;</span><span class="p">:</span> <span class="s">&#39;http://a1.twimg.com/profile_images/1213351752/_2_2__normal.jpg&#39;</span><span class="p">,</span>
+ <span class="s">&#39;notifications&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;show_all_inline_media&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;geo_enabled&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> 
+ <span class="s">&#39;profile_background_image_url&#39;</span><span class="p">:</span> <span class="s">&#39;http://a2.twimg.com/a/1294785484/images/themes/theme15/bg.png&#39;</span><span class="p">,</span>
+ <span class="s">&#39;screen_name&#39;</span><span class="p">:</span> <span class="s">&#39;jaeeeee&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;lang&#39;</span><span class="p">:</span> <span class="s">&#39;en&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;following&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> 
+ <span class="s">&#39;profile_background_tile&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;favourites_count&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+ <span class="s">&#39;name&#39;</span><span class="p">:</span> <span class="s">&#39;Jae Jung Chung&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;url&#39;</span><span class="p">:</span> <span class="s">&#39;http://www.carbonize.co.kr&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;created_at&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">45</span><span class="p">),</span> 
+ <span class="s">&#39;contributors_enabled&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;time_zone&#39;</span><span class="p">:</span> <span class="s">&#39;Seoul&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;profile_sidebar_border_color&#39;</span><span class="p">:</span> <span class="s">&#39;a8c7f7&#39;</span><span class="p">,</span> 
+ <span class="s">&#39;is_translator&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> 
+ <span class="s">&#39;listed_count&#39;</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Either clone my Github repository locally, or copy and paste the scripts code from above and save it to a file called something like 'tweetArchiver.py'. Make sure you have <a href="https://github.com/tweepy/tweepy">tweepy</a> and <a href="http://pytz.sourceforge.net/">pytz</a> (for timezones correction) installed as well. It's easy if you have pip installed:</p>
+<div class="highlight"><pre>pip install tweepy
+pip install pytz
+</pre></div>
+
+
+<p>Edit the 'archiveFile' variable at the top of the script to the file location you want to be written to:</p>
+<div class="highlight"><pre><span class="n">archiveFile</span> <span class="o">=</span> <span class="s">&quot;/Users/timbueno/Desktop/logDir/twitter.txt&quot;</span>
+</pre></div>
+
+
+<p>Execute my script like so:
+    :::bash
+    python tweetArchiver.py</p>
+<p>After the log file is created you can point the aforementioned IFTTT recipe to the log file for further appending each time you tweet!</p>
+<p>I cooked this up earlier today so there very well could be some bugs. Feel free to let me know of any you find!</p>
+<p><strong>Edit:</strong> As Brett Terpsta has <a href="https://twitter.com/ttscoff/status/221089856728743937">pointed out</a>, my script is limited to around 3200 statuses. The heavier twitter users, and the not so distant future me, will be over this limit. So if you are under 3200 tweets, now is the time to begin archiving!</p>
+<p><strong>Edit 2:</strong>  <a href="https://twitter.com/drdrang/status/221243066588213248">Dr. Drang weighed in</a> on my code as well. My original implementation required the user to authenticate their twitter acount with my application. This ultimately was not necessary and I have removed it from the code above and have pushed the changes to Github.</p>
+<p><strong>Edit 3:</strong> I hope this is the last edit! I've updated the tweetArchiver.py script once again to adjust for timezones. However, this did add a dependencey on the 'pytz' module. But if its good enough for Dr. Drang, its good enough for me!</p>
+
+                    <div class="clear"></div>
+                    <div class="info">
+                        <a href="http://timbueno.com/2012/07/05/tweet-archiver">posted at 11:39 P</a>
+                    
+
+                                                
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="clear"></div>
+                <div id="footer">
+                    <p>
+<!--                     Mockingbird theme by <a href="http://nevanscott.com/">Nevan Scott</a>
+                    &middot; -->
+                    <!-- <a class="atom" href="http://timbueno.com/feeds/all.atom.xml">Feed</a> -->
+                    <a class="atom" href="feeds/all.atom.xml">Feed</a>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-32818972-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+    </body>
+</html>
