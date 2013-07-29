@@ -13,7 +13,7 @@ THEME = '/Users/timbueno/Dropbox/Blog/themes/mythemes/timbueno'
 
 SUMMARY_MAX_LENGTH = 50
 
-FILES_TO_COPY = (('extras/robots.txt', 'robots.txt'),)
+FILES_TO_COPY = (('extras/robots.txt', 'robots.txt'),('extras/CNAME', 'CNAME'),)
 DELETE_OUTPUT_DIRECTORY = True
 
 GOOGLE_ANALYTICS = 'UA-32818972-1'
